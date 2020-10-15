@@ -1,5 +1,6 @@
 import * as webpack from "webpack";
 import { Compiler, Configuration } from "webpack";
+import { basename } from "path";
 
 /**
  * Builder options
@@ -33,6 +34,7 @@ export class Builder {
     this.webpack.options.output = {
       libraryTarget: "commonjs",
       path: this.options.output,
+      filename: basename(this.options.output),
       hashFunction: "md4",
     };
   }
